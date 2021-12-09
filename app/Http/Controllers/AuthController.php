@@ -56,6 +56,15 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
     ]);
     }
+
+    // L O G O U T
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return [
+            'message' => 'Logged out'
+        ];
+    }
     //BATAS PERTEMUAN PAK AIC 5 OKT
 
     public function me(Request $request)
